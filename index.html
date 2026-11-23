@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>クライアントサイド</title>
+    <script src="https://unpkg.com/petite-vue" defer init></script>
+    <!-- prettier-ignore -->
+    <style>
+      h1 { font-size: 1.5em; }
+    </style>
+  </head>
+  <body v-scope="dataset()">
+    <h1>ユーザー登録</h1>
+    <form id="signupForm">
+      <input type="text" v-model="signupUsername" placeholder="ユーザー名" required />
+      <input type="password" v-model="signupPassword" placeholder="パスワード" required />
+      <button @click.prevent="signup">登録</button>
+    </form>
+
+    <h1>ログイン</h1>
+    <form id="loginForm">
+      <input type="text" v-model="loginUsername" placeholder="ユーザー名" required />
+      <input type="password" v-model="loginPassword" placeholder="パスワード" required />
+      <button @click.prevent="login">ログイン</button>
+    </form>
+
+    <h1>プロフィール取得 (要認証)</h1>
+    <button @click.prevent="getProfile">プロフィール取得</button>
+
+    <h1>ログアウト</h1>
+    <button @click.prevent="logout">ログアウト</button>
+
+    <h1>レスポンス</h1>
+    <p id="result">{{result}}</p>
+  </body>
+  <script src="client.js"></script>
+</html>
